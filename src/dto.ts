@@ -63,3 +63,54 @@ export type getSubDistrictResponse = {
       results: getSubDistrictResponseResult | getSubDistrictResponseResult[];
   };
 }
+
+export type getCostRequest = {
+  origin: string;
+  originType: string;
+  destination: string;
+  destinationType: string;
+  weight: string;
+  courier: string;
+}
+
+export type getCostResponseResult = {
+  code: string;
+  name: string;
+  costs: Array<{
+      service: string;
+      description: string;
+      cost: Array<{
+          value: number;
+          etd: string;
+          note: string;
+      }>;
+  }>;
+}
+
+export type getCostResponse = {
+  rajaongkir: {
+      query: getCostRequest;
+      status: {
+          code: number;
+          description: string;
+      };
+      origin_details: {
+          city_id: string;
+          province_id: string;
+          province: string;
+          type: string;
+          city_name: string;
+          postal_code: string;
+      };
+      destination_details: {
+          subdistrict_id: string;
+          province_id: string;
+          province: string;
+          city_id: string;
+          city: string;
+          type: string;
+          subdistrict_name: string;
+      };
+      results: getCostResponseResult | getCostResponseResult[];
+  };
+}

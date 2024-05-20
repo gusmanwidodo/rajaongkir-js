@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { apiType, starterBaseUrl, TypeOption } from "../src/constant";
-import { getCity, getProvince, getSubDistrict, rajaongkir } from "../src/endpoint";
+import { getCity, getCost, getProvince, getSubDistrict, rajaongkir } from "../src/endpoint";
 
 describe('Setup test', () => {
   it('should have API_TYPE default starter', () => {
@@ -53,6 +53,20 @@ describe('Endpoint test', () => {
     expect(res).to.have.property('rajaongkir')
     expect(res.rajaongkir.results).to.have.property('subdistrict_id')
     expect(res.rajaongkir.results).to.have.property('subdistrict_name')
+  })
+
+  it('should return cost', async() => {
+    const res = await getCost({
+      origin: '501',
+      originType: 'city',
+      destination: '574',
+      destinationType: 'subdistrict',
+      weight: '1700',
+      courier: 'jne',
+    })
+
+    expect(res).to.have.property('rajaongkir')
+    expect(res.rajaongkir.results).to.be.an('array')
   })
 
 })
