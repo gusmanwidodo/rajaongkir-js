@@ -1,0 +1,30 @@
+{
+  "name": "rajaongkir",
+  "version": "1.0.1",
+  "description": "the client library for Rajaongkir API",
+  "main": "index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusmanwidodo/rajaongkir-js.git"
+  },
+  "keywords": [
+    "rajaongkir",
+    "nodejs",
+    "typescript"
+  ],
+  "author": "Gusman Widodo <gusmanwidodo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gusmanwidodo/rajaongkir-js/issues"
+  },
+  "homepage": "https://github.com/gusmanwidodo/rajaongkir-js#readme",
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "typescript": "^5.4.5"
+  }
+}
