@@ -1,3 +1,5 @@
+import exp from "constants";
+
 export type getProvinceResponseResult = {
   province_id: string;
   province: string;
@@ -37,4 +39,27 @@ export type getCityResponse = {
       };
       results: getCityResponseResult | getCityResponseResult[];
   }
+}
+
+export type getSubDistrictResponseResult = {
+  subdistrict_id: string;
+  province_id: string;
+  province: string;
+  city_id: string;
+  city: string;
+  type: string;
+  subdistrict_name: string;
+}
+
+export type getSubDistrictResponse = {
+  rajaongkir: {
+      query: {
+          city: string;
+      };
+      status: {
+          code: number;
+          description: string;
+      };
+      results: getSubDistrictResponseResult | getSubDistrictResponseResult[];
+  };
 }

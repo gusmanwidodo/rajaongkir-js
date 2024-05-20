@@ -1,13 +1,17 @@
 import { expect } from "chai";
 import { apiType, starterBaseUrl, TypeOption } from "../src/constant";
-import { getCity, getProvince, rajaongkir } from "../src/endpoint";
+import { getCity, getProvince, getSubDistrict, rajaongkir } from "../src/endpoint";
 
 describe('Setup test', () => {
   it('should have API_TYPE default starter', () => {
-    expect(apiType).to.equal(TypeOption.STARTER)
+    if (process.env.RAJAONGKIR_API_TYPE === undefined) {
+      expect(apiType).to.equal(TypeOption.STARTER)
+    }
   })
   it('should have default constructor', () => {
-    expect(rajaongkir.getBaseUrl()).to.equal(starterBaseUrl)
+    if (process.env.RAJAONGKIR_API_TYPE === undefined) {
+      expect(rajaongkir.getBaseUrl()).to.equal(starterBaseUrl)
+    }
   })
 })
 
@@ -36,6 +40,19 @@ describe('Endpoint test', () => {
     expect(res).to.have.property('rajaongkir')
     expect(res.rajaongkir.results).to.have.property('city_id')
     expect(res.rajaongkir.results).to.have.property('city_name')
+  })
+
+  it('should return subdistrict in list', async() => {
+    const res = await getSubDistrict({city: '39'})
+    expect(res).to.have.property('rajaongkir')
+    expect(res.rajaongkir.results).to.be.an('array')
+  })
+
+  it('should return subdistrict in single', async() => {
+    const res = await getSubDistrict({id: '537'})
+    expect(res).to.have.property('rajaongkir')
+    expect(res.rajaongkir.results).to.have.property('subdistrict_id')
+    expect(res.rajaongkir.results).to.have.property('subdistrict_name')
   })
 
 })

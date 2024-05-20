@@ -8,5 +8,5 @@ export const apiKey: string = process.env.RAJAONGKIR_API_KEY || ''
 export enum TypeOption {
   STARTER = 'starter',
   BASIC = 'basic',
-  PRO = 'prop',
+  PRO = 'pro',
 }
