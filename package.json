@@ -1,6 +1,6 @@
 {
   "name": "rajaongkir",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "the client library for Rajaongkir API",
   "main": "index.js",
   "types": "dist/index.d.ts",
